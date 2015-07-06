@@ -5,5 +5,3 @@ RUN rpm -i http://repos.mesosphere.io/el/7/noarch/RPMS/mesosphere-el-repo-7-1.no
 COPY entrypoint.sh /
 
 ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["/usr/bin/chronos"]

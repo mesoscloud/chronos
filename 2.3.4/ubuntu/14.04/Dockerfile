@@ -5,5 +5,3 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && echo deb htt
 COPY entrypoint.sh /
 
 ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["/usr/bin/chronos"]
