@@ -4,8 +4,15 @@
     - mesoscloud/chronos:2.3.4-centos
     - mesoscloud/chronos:2.3.4
     - mesoscloud/chronos:latest
-    
+
 - build: 2.3.4/ubuntu/14.04
   image:
     - mesoscloud/chronos:2.3.4-ubuntu-14.04
     - mesoscloud/chronos:2.3.4-ubuntu
+
+
+- tests:
+    - cmd: "true"
+      env:
+        - CHRONOS_HTTP_PORT=4400
+      stdout: "chronos run_jar --http_port 4400\n"
