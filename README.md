@@ -20,6 +20,8 @@ docker run -d \
 --name chronos --net host --restart always mesoscloud/chronos:2.3.4-centos-7
 ```
 
+Set environment variable `SECRET` to enable framework authentication.
+
 ## Ubuntu
 
 [![](https://badge.imagelayers.io/mesoscloud/chronos:2.3.4-ubuntu-14.04.svg)](https://imagelayers.io/?images=mesoscloud/chronos:2.3.4-ubuntu-14.04)
@@ -33,3 +35,5 @@ docker run -d \
 -e CHRONOS_ZK_HOSTS=node-1:2181,node-2:2181,node-3:2181 \
 --name chronos --net host --restart always mesoscloud/chronos:2.3.4-ubuntu-14.04
 ```
+
+Set environment variable `SECRET` to enable framework authentication.

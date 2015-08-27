@@ -13,3 +13,7 @@
 
 - tests:
     - cmd: chronos -h 2> /dev/null | grep 'USAGE.*chronos'
+
+    - cmd: test -f /tmp/secret
+      env:
+        - SECRET=password

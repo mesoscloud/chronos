@@ -8,6 +8,14 @@ for k in `set | grep ^CHRONOS_ | cut -d= -f1`; do
     CMD="$CMD --`echo $k | cut -d_ -f2- | tr '[:upper:]' '[:lower:]'` $v"
 done
 
+# authentication
+PRINCIPAL=${PRINCIPAL:-root}
+
+if [ -n "$SECRET" ]; then
+    echo -n "$SECRET" > /tmp/secret
+    CMD="$CMD --mesos_authentication_principal $PRINCIPAL --mesos_authentication_secret_file /tmp/secret"
+fi
+
 echo $CMD
 
 if [ $# -gt 0 ]; then
