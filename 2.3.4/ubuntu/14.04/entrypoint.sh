@@ -12,6 +12,8 @@ done
 PRINCIPAL=${PRINCIPAL:-root}
 
 if [ -n "$SECRET" ]; then
+    touch /tmp/secret
+    chmod 600 /tmp/secret
     echo -n "$SECRET" > /tmp/secret
     CMD="$CMD --mesos_authentication_principal $PRINCIPAL --mesos_authentication_secret_file /tmp/secret"
 fi
