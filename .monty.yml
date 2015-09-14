@@ -1,9 +1,20 @@
+- build: 2.4.0/centos/7
+  image:
+    - mesoscloud/chronos:2.4.0-centos-7
+    - mesoscloud/chronos:2.4.0-centos
+    - mesoscloud/chronos:2.4.0
+    - mesoscloud/chronos:latest
+
+- build: 2.4.0/ubuntu/14.04
+  image:
+    - mesoscloud/chronos:2.4.0-ubuntu-14.04
+    - mesoscloud/chronos:2.4.0-ubuntu
+
 - build: 2.3.4/centos/7
   image:
     - mesoscloud/chronos:2.3.4-centos-7
     - mesoscloud/chronos:2.3.4-centos
     - mesoscloud/chronos:2.3.4
-    - mesoscloud/chronos:latest
 
 - build: 2.3.4/ubuntu/14.04
   image:
