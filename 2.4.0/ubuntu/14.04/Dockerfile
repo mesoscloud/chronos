@@ -1,9 +1,11 @@
 FROM ubuntu:14.04
+MAINTAINER Peter Ericson <pdericson@gmail.com>
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
 echo deb http://repos.mesosphere.io/ubuntu trusty main > /etc/apt/sources.list.d/mesosphere.list && \
 apt-get update && \
-apt-get -y install chronos=2.4.0-0.1.20151007110204.ubuntu1404 mesos=0.28.1-2.0.20.ubuntu1404
+apt-get install --no-install-recommends -y chronos=2.4.0-0.1.20151007110204.ubuntu1404 mesos=0.28.1-2.0.20.ubuntu1404 && \
+rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /
 
