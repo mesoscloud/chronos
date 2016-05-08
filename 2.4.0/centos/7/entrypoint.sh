@@ -25,4 +25,4 @@ if [ $# -gt 0 ]; then
     exec "$@"
 fi
 
-exec "$CMD"
+eval "exec $CMD"
