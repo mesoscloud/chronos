@@ -3,9 +3,6 @@ sudo: required
 services:
   - docker
 
-install:
-  - sudo apt-get update && sudo apt-get install -y shellcheck
-
 script:
   - |
     set -ex
@@ -15,5 +12,5 @@ script:
   - |
     set -ex
     for path in `find . -name \*.sh`; do
-        shellcheck $path
+        docker run --rm -i -v "$PWD":/mnt lukasmartinelli/hadolint shellcheck /mnt/$path
     done
