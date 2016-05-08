@@ -1,0 +1,19 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - apt-get update && apt-get install -y shellcheck
+
+script:
+  - |
+    set -ex
+    for path in `find . -name Dockerfile`; do
+        docker run --rm -i lukasmartinelli/hadolint < $path
+    done
+  - |
+    set -ex
+    for path in `find . -name \*.sh`; do
+        shellcheck $path
+    done
