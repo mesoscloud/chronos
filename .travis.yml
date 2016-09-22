@@ -10,3 +10,11 @@ script:
         echo $path
         docker run --rm -i lukasmartinelli/hadolint < $path
     done
+  - |
+    set -e
+    for path in `find . -name Dockerfile -print0 | xargs -0 -n1 dirname`; do
+        echo $path
+        cd $path
+        docker build .
+        cd -
+    done
