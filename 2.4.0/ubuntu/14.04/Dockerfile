@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -y curl && \
     echo '22426dab7b3553459619638e18d2ab9061ddc866  dumb-init' > /tmp/dumb-init.asc && \
     cd /usr/local/bin && shasum -a1 -c /tmp/dumb-init.asc && cd - && \
     chmod +x /usr/local/bin/dumb-init && \
-    # Install chronos
     apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
     echo deb http://repos.mesosphere.io/ubuntu trusty main > /etc/apt/sources.list.d/mesosphere.list && \
     apt-get update && \
