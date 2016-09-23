@@ -11,6 +11,12 @@ script:
         docker run --rm -i lukasmartinelli/hadolint < $path
     done
   - |
+    for path in `find . -name \*.sh`
+    do
+      echo $path
+      docker run -v `pwd`:/mnt koalaman/shellcheck $path
+    done
+  - |
     set -e
     for path in `find . -name Dockerfile -print0 | xargs -0 -n1 dirname`; do
         echo $path
