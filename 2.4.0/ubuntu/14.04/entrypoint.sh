@@ -3,7 +3,7 @@
 CMD="chronos run_jar"
 
 # Parse environment variables
-for env in $(set | grep ^CHRONOS_ | cut -d= -f1); do
+for env in $(set | grep ^CHRONOS_ | grep -v ^CHRONOS_VERSION | cut -d= -f1); do
     opt=$(echo "$env" | cut -d_ -f2- | tr '[:upper:]' '[:lower:]')
     arg=""; eval arg=\$"$env"
     CMD="$CMD --$opt $arg"
